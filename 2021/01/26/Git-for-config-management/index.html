@@ -14,7 +14,7 @@
 <meta property="og:description" content="Though the most common use of git is source code version control, it also works well for maintaining Software configuration files. Consider the case of a Software that receives some data, does some pr">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/contents/img/demo_libgit.gif">
-<meta property="og:updated_time" content="2021-01-29T02:33:48.101Z">
+<meta property="og:updated_time" content="2021-01-31T22:57:31.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git for Config Management">
 <meta name="twitter:description" content="Though the most common use of git is source code version control, it also works well for maintaining Software configuration files. Consider the case of a Software that receives some data, does some pr">
@@ -142,7 +142,7 @@
 
   <div class="content" itemprop="articleBody">
     <p>Though the most common use of git is source code version control, it also works well for maintaining Software configuration files. Consider the case of a Software that receives some data, does some processing based on some parameters provided by the user and generates some results. The user could tinker with the parameters to find the optimal solution. As long as the change history is maintained the user can go back and forth with all the parameter combinations that were tried so far. It is a common approach to save these parameters, settings and user preferences in flat, ini, xml or json files. But once the program ends it wouldn’t be possible to get back to the previous parameter combinations, or to know if someone else accidentally changed the parameters. </p>
-<p>This is where one could use git to manage the configuration files. It gives all the goodies of a version control system, like change history, tags etc. The library <a href="https://libgit2.org/" target="_blank" rel="noopener">libgit</a> is a portable, pure C implementation of the Git core methods. Bindings are available for most of the popular languages like python, ruby, lua, C# etc.</p>
+<p>Just like checkpoints feature in jupyter notebooks, one could use git to manage the configuration files. It gives all the goodies of a version control system, like change history, tags etc. The library <a href="https://libgit2.org/" target="_blank" rel="noopener">libgit</a> is a portable, pure C implementation of the Git core methods. Bindings are available for most of the popular languages like python, ruby, lua, C# etc.</p>
 <p>To further demonstrate this use case, let us consider this toy application written in Python with Qt bindings. It converts a color image to binary image. It needs two parameters, a lower threshold and an upper threshold. As the application starts, it creates a git repository to store the configuration file. When the user saves the settings it creates a new commit. As shown in the gif below the git log shows all the commits.</p>
 <p><img src="/contents/img/demo_libgit.gif" alt="png"></p>
 <p>Following code snippet shows all the API’s that were used for the toy application</p>
