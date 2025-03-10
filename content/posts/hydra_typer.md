@@ -16,7 +16,7 @@ draft: false
 
 ### Using Typer and Hyrda in the same program
 
-Since both [Typer](https://typer.tiangolo.com/) and [Hydra](https://hydra.cc) uses the input arguments from `sys` module, we need a workaround to use them together.
+The way I normally structure my machine learning project is to have a `cli` program that has separate commands to run a training experiment, evaluate a dataset etc. And I use `typer` to create those commands. Each of those commands in turn will use a `config` file to get the parameters. And for configuration, my go to framework is `hydra`. Since both [Typer](https://typer.tiangolo.com/) and [Hydra](https://hydra.cc) uses the input arguments from `sys` module, we need a workaround to use them together. A workaround would be a wrong word to use. What I really mean is default way of using `hydra` and `typer` involves decorating your command function. So in order to use `hydra` and `typer` together, instead of using the `@hydra.main` decorator, one should use the composable API's of `hyper`. Below is a code snippet, that has `typer` command for training and evaluation and the configuration files for each of those are under the folder, `conf/task/training.yaml` and `conf/task/evaluate.yaml`.
 
 ```python
 ##!/usr/bin/env python
@@ -47,3 +47,5 @@ def evaluate():
 if __name__ == "__main__":
     app()
 ```
+
+I hope this is useful!
